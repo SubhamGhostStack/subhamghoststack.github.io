@@ -196,7 +196,7 @@
         const repoUrl = "https://github.com/" + username + "/" + encodeURIComponent(repo.name);
         const demoUrl = "https://" + username.toLowerCase() + ".github.io/" + encodeURIComponent(repo.name) + "/";
         const description = repo.description || "Explore the source code and development of this project.";
-        const previewUrl = repo.name + "/preview.jpeg";
+        const previewUrl = repo.name.toLowerCase() === (username.toLowerCase() + ".github.io") ? "profile.jpeg" : repo.name + "/preview.jpeg";
         const demo = repo.name.toLowerCase() === (username.toLowerCase() + ".github.io")
           ? "https://" + username.toLowerCase() + ".github.io/"
           : demoUrl;
@@ -206,7 +206,7 @@
             <div class="preview">
               <img src="${escapeHTML(previewUrl)}" alt=""
                 onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-              <span class="symbol" style="display:none">${iconFor(repo)}</span>
+              <span class="symbol" style="display:none">${iconFor(repo)}</span
             </div>
             <div class="card-body">
               <h3>${escapeHTML(repo.name.replace(/-/g, " "))}</h3>
