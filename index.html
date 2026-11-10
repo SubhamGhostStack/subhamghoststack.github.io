@@ -1,720 +1,719 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#080b14">
-  <title>SubhamGhostStack | Developer Portfolio</title>
-  <meta name="description" content="Explore SubhamGhostStack's projects, experiments and web development journey.">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080d19">
 
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+<title>SubhamGhostStack | Developer Portfolio</title>
 
-    body {
-      background: #080b14;
-      color: #edf2ff;
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-    }
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    a { color: inherit; text-decoration: none; }
-    .container { width: min(1100px, 92%); margin: auto; }
+body {
+    background: #080d19;
+    color: #f1f5f9;
+    font-family: Arial, sans-serif;
+}
 
+header {
+    padding: 16px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #0b1220;
+    border-bottom: 1px solid #1e293b;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #60a5fa;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.logo img {
+    width: 43px;
+    height: 43px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #60a5fa;
+}
+
+nav a {
+    color: #cbd5e1;
+    text-decoration: none;
+    margin-left: 18px;
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: #60a5fa;
+}
+
+.hero {
+    text-align: center;
+    padding: 85px 20px 60px;
+}
+
+.hero h1 {
+    font-size: clamp(30px, 5vw, 52px);
+    margin-bottom: 16px;
+}
+
+.hero h1 span {
+    color: #60a5fa;
+}
+
+.hero p {
+    color: #94a3b8;
+    max-width: 650px;
+    margin: auto;
+    line-height: 1.8;
+}
+
+.btn {
+    display: inline-block;
+    margin: 24px 5px 0;
+    padding: 12px 22px;
+    background: #2563eb;
+    color: white;
+    text-decoration: none;
+    border-radius: 7px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.btn.secondary {
+    background: #17243a;
+    border: 1px solid #334155;
+}
+
+.btn:hover {
+    opacity: .85;
+}
+
+.section {
+    max-width: 1300px;
+    margin: auto;
+    padding: 30px 7% 70px;
+}
+
+.heading {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.heading h2 {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.heading p {
+    color: #94a3b8;
+    font-size: 14px;
+}
+
+.search {
+    display: block;
+    width: 100%;
+    max-width: 550px;
+    margin: 0 auto 35px;
+    padding: 15px;
+    background: #111c2e;
+    border: 1px solid #26364d;
+    border-radius: 9px;
+    color: white;
+    outline: none;
+    font-size: 15px;
+}
+
+.search:focus {
+    border-color: #60a5fa;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 24px;
+}
+
+.card {
+    background: #101a2b;
+    border: 1px solid #223149;
+    border-radius: 13px;
+    overflow: hidden;
+    transition: .25s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: #3b82f6;
+}
+
+.thumbnail {
+    aspect-ratio: 16 / 9;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    text-align: center;
+    padding: 15px;
+    position: relative;
+    overflow: hidden;
+}
+
+.thumbnail::before,
+.thumbnail::after {
+    content: "";
+    position: absolute;
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    background: #ffffff15;
+}
+
+.thumbnail::before {
+    top: -100px;
+    left: -50px;
+}
+
+.thumbnail::after {
+    bottom: -110px;
+    right: -40px;
+}
+
+.thumb-icon {
+    font-size: 53px;
+    z-index: 1;
+}
+
+.thumb-label {
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: #ffffffc9;
+    z-index: 1;
+}
+
+.thumb-title {
+    font-size: 21px;
+    font-weight: 800;
+    color: white;
+    overflow-wrap: anywhere;
+    z-index: 1;
+}
+
+.card-content {
+    padding: 18px;
+}
+
+.card-content h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    overflow-wrap: anywhere;
+}
+
+.card-content p {
+    color: #94a3b8;
+    font-size: 13px;
+    line-height: 1.7;
+    min-height: 44px;
+    overflow-wrap: anywhere;
+}
+
+.links {
+    display: flex;
+    gap: 9px;
+    margin-top: 17px;
+}
+
+.links a {
+    flex: 1;
+    text-align: center;
+    padding: 10px 4px;
+    border-radius: 6px;
+    background: #2563eb;
+    color: white;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.links a.source {
+    background: #1e293b;
+    border: 1px solid #334155;
+}
+
+.status {
+    text-align: center;
+    color: #94a3b8;
+    margin: 25px 0;
+    font-size: 14px;
+}
+
+footer {
+    border-top: 1px solid #1e293b;
+    text-align: center;
+    padding: 30px 15px;
+    color: #64748b;
+    font-size: 13px;
+}
+
+footer span {
+    color: #60a5fa;
+}
+
+@media(max-width:600px) {
     header {
-      padding: 20px 0;
-      border-bottom: 1px solid #20283b;
-      background: #080b14;
-    }
-
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 15px;
+        padding: 13px 4%;
     }
 
     .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 21px;
-      font-weight: 800;
-      color: #70f0ff;
+        font-size: 14px;
     }
 
-    .logo img {
-      width: 42px;
-      height: 42px;
-      object-fit: cover;
-      border-radius: 10px;
-      border: 2px solid #f5b82e;
+    nav a {
+        margin-left: 9px;
+        font-size: 12px;
     }
 
-    .github-link {
-      border: 1px solid #34415a;
-      border-radius: 10px;
-      padding: 9px 13px;
-      font-size: 13px;
+    .section {
+        padding-left: 5%;
+        padding-right: 5%;
     }
-
-    .hero {
-      padding: 75px 0 55px;
-      text-align: center;
-    }
-
-    .tag {
-      color: #70f0ff;
-      border: 1px solid #214a60;
-      padding: 7px 13px;
-      border-radius: 30px;
-      display: inline-block;
-      font-size: 12px;
-      margin-bottom: 20px;
-    }
-
-    h1 {
-      font-size: clamp(36px, 7vw, 68px);
-      line-height: 1.12;
-    }
-
-    .personal-intro { margin-bottom: 22px; }
-    .personal-intro h1 { font-size: clamp(30px, 5vw, 48px); }
-
-    .gradient {
-      background: linear-gradient(90deg, #70f0ff, #a78bfa);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-
-    .hero p {
-      color: #a8b3ca;
-      max-width: 600px;
-      margin: 20px auto;
-    }
-
-    .actions {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-top: 25px;
-    }
-
-    .btn {
-      padding: 12px 18px;
-      border-radius: 10px;
-      font-weight: bold;
-      font-size: 14px;
-    }
-
-    .primary { background: #70f0ff; color: #071019; }
-    .secondary { border: 1px solid #34415a; }
-
-    .section { padding: 28px 0 65px; }
-
-    .section-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 15px;
-      flex-wrap: wrap;
-      margin-bottom: 22px;
-    }
-
-    h2 { font-size: 27px; }
-    .muted { color: #94a3b8; font-size: 14px; }
-
-    .search {
-      width: 100%;
-      max-width: 300px;
-      padding: 12px 14px;
-      color: white;
-      background: #101727;
-      border: 1px solid #28364d;
-      border-radius: 10px;
-      outline: none;
-    }
-
-    .search:focus { border-color: #70f0ff; }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
-      gap: 18px;
-    }
-
-    .card {
-      overflow: hidden;
-      background: #101522;
-      border: 1px solid #222d42;
-      border-radius: 17px;
-      transition: transform .2s, border-color .2s;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-      border-color: #70f0ff;
-    }
-
-    /* Automatically generated project thumbnail */
-    .preview {
-      height: 175px;
-      display: grid;
-      place-items: center;
-      position: relative;
-      overflow: hidden;
-      border-bottom: 1px solid #222d42;
-      isolation: isolate;
-      background: linear-gradient(135deg, #152943, #17152e);
-    }
-
-    .preview::before,
-    .preview::after {
-      content: "";
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(2px);
-      z-index: -1;
-    }
-
-    .preview::before {
-      width: 180px;
-      height: 180px;
-      top: -100px;
-      right: -30px;
-      background: var(--glow, #70f0ff);
-      opacity: .22;
-    }
-
-    .preview::after {
-      width: 150px;
-      height: 150px;
-      bottom: -100px;
-      left: -20px;
-      background: #a78bfa;
-      opacity: .23;
-    }
-
-    .preview img {
-      width: 100%;
-      height: 175px;
-      object-fit: cover;
-      position: absolute;
-      inset: 0;
-    }
-
-    .generated-thumb {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 7px;
-      text-align: center;
-      padding: 14px;
-    }
-
-    .thumb-icon {
-      font-size: 52px;
-      line-height: 1.2;
-      filter: drop-shadow(0 0 15px var(--glow, #70f0ff));
-    }
-
-    .thumb-title {
-      max-width: 95%;
-      color: #f0f6ff;
-      font-weight: 800;
-      font-size: 17px;
-      overflow-wrap: anywhere;
-      text-shadow: 0 2px 12px #0008;
-    }
-
-    .thumb-label {
-      color: var(--glow, #70f0ff);
-      font-size: 10px;
-      letter-spacing: 3px;
-      font-weight: bold;
-      text-transform: uppercase;
-    }
-
-    .card-body { padding: 18px; }
-
-    .card h3 {
-      font-size: 18px;
-      overflow-wrap: anywhere;
-      text-transform: capitalize;
-    }
-
-    .card p {
-      color: #9ba9c0;
-      font-size: 13px;
-      margin: 8px 0 15px;
-      overflow-wrap: anywhere;
-    }
-
-    .meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 16px;
-    }
-
-    .pill {
-      font-size: 11px;
-      color: #b8c7df;
-      background: #1a2436;
-      padding: 4px 8px;
-      border-radius: 20px;
-    }
-
-    .card-links { display: flex; gap: 9px; flex-wrap: wrap; }
-
-    .small-btn {
-      font-size: 12px;
-      padding: 8px 11px;
-      border-radius: 8px;
-      background: #1a2436;
-    }
-
-    .live {
-      background: #70f0ff;
-      color: #071019;
-      font-weight: bold;
-    }
-
-    .status {
-      color: #94a3b8;
-      font-size: 13px;
-      margin: 12px 0 20px;
-    }
-
-    .about {
-      padding: 24px;
-      border: 1px solid #222d42;
-      border-radius: 16px;
-      background: #101522;
-      color: #a8b3ca;
-    }
-
-    footer {
-      border-top: 1px solid #20283b;
-      padding: 25px 0;
-      text-align: center;
-      color: #8492aa;
-      font-size: 12px;
-    }
-
-    @media(max-width: 500px) {
-      .hero { padding-top: 55px; }
-      .logo { font-size: 17px; }
-      .github-link { font-size: 11px; padding: 8px; }
-      .section-head { align-items: stretch; }
-      .search { max-width: none; }
-      .grid { grid-template-columns: 1fr; }
-    }
-  </style>
+}
+</style>
 </head>
 
 <body>
-  <header>
-    <nav class="container">
-      <a class="logo" href="#">
-        <img src="profile.jpeg" alt="SubhamGhostStack Profile">
-        SubhamGhostStack
-      </a>
 
-      <a class="github-link"
-         href="https://github.com/SubhamGhostStack"
-         target="_blank" rel="noopener">
-        GitHub ↗
-      </a>
+<header>
+    <div class="logo">
+        <!-- Do not change original profile image -->
+        <img src="profile.jpeg" alt="Profile">
+        <span>SubhamGhostStack</span>
+    </div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#projects">Projects</a>
     </nav>
-  </header>
+</header>
 
-  <main class="container">
-    <section class="hero">
-      <div class="personal-intro">
-        <h1>Hello, I'm <span class="gradient">Subham Gupta</span></h1>
-      </div>
+<section class="hero" id="home">
+    <h1>Hello, I'm <span>Subham Gupta</span></h1>
 
-      <span class="tag">● DEVELOPER PORTFOLIO</span>
+    <p>
+        Welcome to my developer portfolio.
+        Explore my web development projects, experiments
+        and creative work.
+    </p>
 
-      <h1>
-        Building the web,<br>
-        <span class="gradient">one project at a time.</span>
-      </h1>
+    <a class="btn" href="#projects">Explore Projects</a>
 
-      <p>
-        Welcome to my digital space. Explore my projects, view the source
-        code, and try live demos wherever available.
-      </p>
+    <a class="btn secondary"
+       href="https://github.com/SubhamGhostStack"
+       target="_blank"
+       rel="noopener noreferrer">
+       My GitHub
+    </a>
+</section>
 
-      <div class="actions">
-        <a class="btn primary" href="#projects">Explore Projects ↓</a>
-        <a class="btn secondary"
-           href="https://github.com/SubhamGhostStack"
-           target="_blank" rel="noopener">
-          Visit GitHub ↗
-        </a>
-      </div>
-    </section>
+<section class="section" id="projects">
 
-    <section class="section" id="projects">
-      <div class="section-head">
-        <div>
-          <h2>Featured Projects <span class="gradient">✦</span></h2>
-          <p class="muted">Public repositories fetched from GitHub</p>
-        </div>
+    <div class="heading">
+        <h2>My Projects</h2>
+        <p>Discover my development journey and latest projects.</p>
+    </div>
 
-        <input
-          class="search"
-          id="search"
-          type="search"
-          placeholder="Search projects..."
-          aria-label="Search projects">
-      </div>
+    <input
+        id="search"
+        class="search"
+        type="search"
+        placeholder="Search projects..."
+    >
 
-      <p class="status" id="status">Loading projects from GitHub...</p>
-      <div class="grid" id="projects-grid"></div>
-    </section>
+    <div id="grid" class="grid"></div>
 
-    <section class="section">
-      <h2 style="margin-bottom:16px">About Me</h2>
-      <div class="about">
-        I'm learning software development by building practical projects
-        and improving my coding skills. This portfolio will grow as I
-        publish more work.
-      </div>
-    </section>
-  </main>
+    <div id="status" class="status">
+        Connecting to GitHub...
+    </div>
 
-  <footer>
-    © <span id="year"></span> SubhamGhostStack · Built with HTML, CSS & JavaScript
-  </footer>
+</section>
 
-  <script>
-    const username = "SubhamGhostStack";
-    const grid = document.getElementById("projects-grid");
-    const statusText = document.getElementById("status");
-    const search = document.getElementById("search");
+<footer>
+    Designed & Developed by <span>Subham Gupta</span>
+    <br><br>
+    © <span id="year"></span> SubhamGhostStack. All Rights Reserved.
+</footer>
 
-    let repositories = [];
+<script>
+"use strict";
 
-    document.getElementById("year").textContent =
-      new Date().getFullYear();
+const USERNAME = "SubhamGhostStack";
+const API = `https://api.github.com/users/${USERNAME}/repos`;
 
-    function escapeHTML(value = "") {
-      return String(value).replace(/[&<>"']/g, char => ({
-        "&": "&amp;",
-        "<": "&lt;",
-        ">": "&gt;",
-        '"': "&quot;",
-        "'": "&#39;"
-      })[char]);
+const grid = document.getElementById("grid");
+const statusBox = document.getElementById("status");
+const searchBox = document.getElementById("search");
+
+document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+let repositories = [];
+let displayedCount = 0;
+
+const BATCH_SIZE = 30;
+
+// Each category has its own visual design
+const themes = [
+    {
+        words: ["food", "meal", "recipe", "restaurant"],
+        icon: "🍔",
+        label: "FOOD DISCOVERY",
+        bg: "linear-gradient(135deg,#134e4a,#16a34a,#a3e635)"
+    },
+    {
+        words: ["calculator", "math"],
+        icon: "🧮",
+        label: "SMART CALCULATOR",
+        bg: "linear-gradient(135deg,#312e81,#7c3aed,#c084fc)"
+    },
+    {
+        words: ["clock", "chrono", "time", "watch"],
+        icon: "⏱️",
+        label: "TIME MANAGEMENT",
+        bg: "linear-gradient(135deg,#082f49,#0369a1,#38bdf8)"
+    },
+    {
+        words: ["counter", "click"],
+        icon: "🔢",
+        label: "INTERACTIVE COUNTER",
+        bg: "linear-gradient(135deg,#7f1d1d,#dc2626,#fb923c)"
+    },
+    {
+        words: ["weather", "climate"],
+        icon: "🌦️",
+        label: "WEATHER FORECAST",
+        bg: "linear-gradient(135deg,#164e63,#0891b2,#67e8f9)"
+    },
+    {
+        words: ["game", "quiz", "play"],
+        icon: "🎮",
+        label: "GAMING EXPERIENCE",
+        bg: "linear-gradient(135deg,#581c87,#9333ea,#e879f9)"
+    },
+    {
+        words: ["portfolio", "profile"],
+        icon: "💻",
+        label: "DEVELOPER PORTFOLIO",
+        bg: "linear-gradient(135deg,#111827,#1d4ed8,#60a5fa)"
+    },
+    {
+        words: ["shop", "store", "ecommerce", "product"],
+        icon: "🛍️",
+        label: "ONLINE SHOPPING",
+        bg: "linear-gradient(135deg,#831843,#db2777,#f9a8d4)"
+    },
+    {
+        words: ["chat", "message"],
+        icon: "💬",
+        label: "MESSAGING APP",
+        bg: "linear-gradient(135deg,#064e3b,#059669,#6ee7b7)"
+    },
+    {
+        words: ["task", "todo", "notes"],
+        icon: "📝",
+        label: "PRODUCTIVITY TOOL",
+        bg: "linear-gradient(135deg,#713f12,#ca8a04,#fde047)"
+    },
+    {
+        words: ["music", "audio", "song"],
+        icon: "🎵",
+        label: "MUSIC EXPERIENCE",
+        bg: "linear-gradient(135deg,#4c1d95,#6d28d9,#c4b5fd)"
+    },
+    {
+        words: ["bank", "finance", "money"],
+        icon: "💰",
+        label: "FINANCE TOOL",
+        bg: "linear-gradient(135deg,#14532d,#16a34a,#86efac)"
+    },
+    {
+        words: ["travel", "tour", "hotel"],
+        icon: "✈️",
+        label: "TRAVEL EXPERIENCE",
+        bg: "linear-gradient(135deg,#1e3a8a,#0284c7,#7dd3fc)"
+    },
+    {
+        words: ["education", "learn", "course", "school"],
+        icon: "📚",
+        label: "LEARNING PLATFORM",
+        bg: "linear-gradient(135deg,#7c2d12,#ea580c,#fed7aa)"
+    }
+];
+
+const fallbackIcons = ["🚀","⚡","🌐","🧩","✨","🖥️","🔷","🎯"];
+const fallbackBackgrounds = [
+    "linear-gradient(135deg,#172554,#2563eb,#93c5fd)",
+    "linear-gradient(135deg,#4c0519,#be123c,#fda4af)",
+    "linear-gradient(135deg,#052e16,#15803d,#86efac)",
+    "linear-gradient(135deg,#3b0764,#7e22ce,#d8b4fe)",
+    "linear-gradient(135deg,#431407,#c2410c,#fdba74)",
+    "linear-gradient(135deg,#083344,#0e7490,#67e8f9)",
+    "linear-gradient(135deg,#1e1b4b,#4338ca,#a5b4fc)",
+    "linear-gradient(135deg,#3f1d38,#a21caf,#f0abfc)"
+];
+
+function getTheme(repo) {
+
+    const info = [
+        repo.name,
+        repo.description || "",
+        ...(repo.topics || [])
+    ].join(" ").toLowerCase();
+
+    const matched = themes.find(theme =>
+        theme.words.some(word => info.includes(word))
+    );
+
+    if (matched) return matched;
+
+    const hash = [...repo.name].reduce(
+        (sum, char) => sum + char.charCodeAt(0),
+        0
+    ) % fallbackIcons.length;
+
+    return {
+        icon: fallbackIcons[hash],
+        label: "WEB DEVELOPMENT",
+        bg: fallbackBackgrounds[hash]
+    };
+}
+
+function makeElement(tag, className, content) {
+
+    const element = document.createElement(tag);
+
+    if (className) element.className = className;
+
+    if (content !== undefined) element.textContent = content;
+
+    return element;
+}
+
+function createCard(repo) {
+
+    const theme = getTheme(repo);
+
+    const card = makeElement("article", "card");
+
+    const thumbnail = makeElement("div", "thumbnail");
+    thumbnail.style.background = theme.bg;
+
+    thumbnail.appendChild(
+        makeElement("div", "thumb-icon", theme.icon)
+    );
+
+    thumbnail.appendChild(
+        makeElement("div", "thumb-label", theme.label)
+    );
+
+    thumbnail.appendChild(
+        makeElement("div", "thumb-title", repo.name)
+    );
+
+    const content = makeElement("div", "card-content");
+
+    content.appendChild(
+        makeElement("h3", "", repo.name)
+    );
+
+    content.appendChild(
+        makeElement(
+            "p",
+            "",
+            repo.description ||
+            "Explore this project and its source code."
+        )
+    );
+
+    const links = makeElement("div", "links");
+
+    const source = makeElement("a", "source", "GitHub Source");
+    source.href = repo.html_url;
+    source.target = "_blank";
+    source.rel = "noopener noreferrer";
+
+    const demo = makeElement("a", "", "Live Demo");
+
+    if (repo.name.toLowerCase() ===
+        `${USERNAME.toLowerCase()}.github.io`) {
+
+        demo.href = `https://${USERNAME.toLowerCase()}.github.io/`;
+
+    } else {
+
+        demo.href =
+            `https://${USERNAME.toLowerCase()}.github.io/${encodeURIComponent(repo.name)}/`;
     }
 
-    /*
-      Pick a thumbnail style using the repository name and description.
-      New projects get a suitable icon automatically.
-    */
-    function getProjectTheme(repo) {
-      const name = (repo.name || "").toLowerCase();
-      const description = (repo.description || "").toLowerCase();
-      const text = name + " " + description;
+    demo.target = "_blank";
+    demo.rel = "noopener noreferrer";
 
-      const themes = [
-        {
-          keywords: ["calculator", "math", "arithmetic"],
-          icon: "🧮", label: "Smart Calculator", glow: "#70f0ff"
-        },
-        {
-          keywords: ["chronoclock", "clock", "time", "date"],
-          icon: "🕒", label: "Time & Date", glow: "#a78bfa"
-        },
-        {
-          keywords: ["counter", "count"],
-          icon: "🔢", label: "Counter App", glow: "#f5b82e"
-        },
-        {
-          keywords: ["weather", "forecast"],
-          icon: "🌦️", label: "Weather App", glow: "#60a5fa"
-        },
-        {
-          keywords: ["todo", "to-do", "task", "notes", "note"],
-          icon: "📝", label: "Productivity", glow: "#34d399"
-        },
-        {
-          keywords: ["game", "gaming", "puzzle", "tic-tac"],
-          icon: "🎮", label: "Game Project", glow: "#fb7185"
-        },
-        {
-          keywords: ["portfolio", "personal website"],
-          icon: "🌌", label: "Developer Portfolio", glow: "#a78bfa"
-        },
-        {
-          keywords: ["ecommerce", "e-commerce", "shop", "store", "cart"],
-          icon: "🛍️", label: "Online Store", glow: "#f472b6"
-        },
-        {
-          keywords: ["chat", "message", "messenger"],
-          icon: "💬", label: "Chat Application", glow: "#38bdf8"
-        },
-        {
-          keywords: ["music", "audio", "player", "sound"],
-          icon: "🎧", label: "Media Project", glow: "#c084fc"
-        },
-        {
-          keywords: ["video", "movie", "stream"],
-          icon: "🎬", label: "Video Project", glow: "#f87171"
-        },
-        {
-          keywords: ["security", "cyber", "hacking", "pentest"],
-          icon: "🛡️", label: "Cyber Security", glow: "#4ade80"
-        },
-        {
-          keywords: ["api", "backend", "server"],
-          icon: "⚡", label: "Backend Project", glow: "#facc15"
-        },
-        {
-          keywords: ["database", "sql", "mysql"],
-          icon: "🗄️", label: "Database Project", glow: "#60a5fa"
-        },
-        {
-          keywords: ["ai", "artificial intelligence", "machine learning", " ml "],
-          icon: "🤖", label: "AI Project", glow: "#c084fc"
-        },
-        {
-          keywords: ["html", "css", "javascript", "web"],
-          icon: "🌐", label: "Web Development", glow: "#70f0ff"
-        },
-        {
-          keywords: ["python"],
-          icon: "🐍", label: "Python Project", glow: "#facc15"
-        },
-        {
-          keywords: ["csharp", "c-sharp", "dotnet", ".net", "asp.net"],
-          icon: "💠", label: "C# / .NET Project", glow: "#a78bfa"
-        },
-        {
-          keywords: ["java"],
-          icon: "☕", label: "Java Project", glow: "#fb923c"
-        },
-        {
-          keywords: ["react"],
-          icon: "⚛️", label: "React Project", glow: "#38bdf8"
-        },
-        {
-          keywords: ["dashboard", "analytics", "chart"],
-          icon: "📊", label: "Analytics", glow: "#34d399"
-        },
-        {
-          keywords: ["weather"],
-          icon: "🌦️", label: "Weather App", glow: "#60a5fa"
-        }
-      ];
+    links.append(source, demo);
+    content.appendChild(links);
 
-      const theme = themes.find(item =>
-        item.keywords.some(keyword => text.includes(keyword))
-      );
+    card.append(thumbnail, content);
 
-      if (theme) return theme;
+    return card;
+}
 
-      // Automatic fallback for projects with unknown names.
-      return {
-        icon: iconForLanguage(repo.language),
-        label: repo.language || "Developer Project",
-        glow: "#70f0ff"
-      };
-    }
+function renderBatch() {
 
-    function iconForLanguage(language) {
-      const icons = {
-        "JavaScript": "🟨",
-        "HTML": "🌐",
-        "CSS": "🎨",
-        "Python": "🐍",
-        "C#": "💠",
-        "Java": "☕",
-        "TypeScript": "🔷",
-        "PHP": "🐘",
-        "C++": "⚙️",
-        "C": "⚙️",
-        "Jupyter Notebook": "📓"
-      };
+    const query = searchBox.value.toLowerCase().trim();
 
-      return icons[language] || "💻";
-    }
+    const filtered = repositories.filter(repo => {
 
-    /*
-      Keep real preview images when they exist.
-      If the image fails to load, show the generated thumbnail instead.
-    */
-    function previewImageFor(repo) {
-      const name = repo.name.toLowerCase();
+        const text = [
+            repo.name,
+            repo.description || "",
+            ...(repo.topics || [])
+        ].join(" ").toLowerCase();
 
-      if (name === (username.toLowerCase() + ".github.io")) {
-        return "profile.jpeg";
-      }
+        return text.includes(query);
+    });
 
-      if (name === "simple-calculator-project") {
-        return "https://raw.githubusercontent.com/" +
-          username + "/" + username +
-          ".github.io/main/calculator.png";
-      }
+    grid.innerHTML = "";
+    displayedCount = 0;
 
-      // Repositories can optionally contain their own preview.jpeg.
-      return "https://raw.githubusercontent.com/" +
-        username + "/" + encodeURIComponent(repo.name) +
-        "/main/preview.jpeg";
-    }
-
-    function makeThumbnail(repo) {
-      const theme = getProjectTheme(repo);
-      const title = repo.name
-        .replace(/[-_]+/g, " ")
-        .replace(/\b\w/g, letter => letter.toUpperCase());
-
-      return `
-        <div class="generated-thumb"
-             style="--glow:${escapeHTML(theme.glow)}">
-          <div class="thumb-label">
-            ${escapeHTML(theme.label)}
-          </div>
-          <div class="thumb-icon" aria-hidden="true">
-            ${theme.icon}
-          </div>
-          <div class="thumb-title">
-            ${escapeHTML(title)}
-          </div>
-        </div>
-      `;
-    }
-
-    function renderProjects() {
-      const query = search.value.trim().toLowerCase();
-
-      const filtered = repositories.filter(repo =>
-        (
-          repo.name + " " +
-          (repo.description || "") + " " +
-          (repo.language || "")
-        ).toLowerCase().includes(query)
-      );
-
-      if (!filtered.length) {
-        grid.innerHTML =
-          '<p class="muted">No matching projects found.</p>';
+    if (!filtered.length) {
+        statusBox.textContent = "No projects found.";
         return;
-      }
-
-      grid.innerHTML = filtered.map(repo => {
-        const repoUrl =
-          "https://github.com/" + username + "/" +
-          encodeURIComponent(repo.name);
-
-        const isPortfolio =
-          repo.name.toLowerCase() ===
-          (username.toLowerCase() + ".github.io");
-
-        const demoUrl = isPortfolio
-          ? "https://" + username.toLowerCase() + ".github.io/"
-          : "https://" + username.toLowerCase() + ".github.io/" +
-            encodeURIComponent(repo.name) + "/";
-
-        const description = repo.description ||
-          "Explore the source code and development of this project.";
-
-        const previewUrl = previewImageFor(repo);
-
-        return `
-          <article class="card">
-            <div class="preview"
-                 style="--glow:${escapeHTML(getProjectTheme(repo).glow)}">
-
-              ${makeThumbnail(repo)}
-
-              <img
-                src="${escapeHTML(previewUrl)}"
-                alt="${escapeHTML(repo.name)} project preview"
-                loading="lazy"
-                onload="this.previousElementSibling.style.display='none';"
-                onerror="this.remove();">
-            </div>
-
-            <div class="card-body">
-              <h3>${escapeHTML(repo.name.replace(/[-_]/g, " "))}</h3>
-
-              <p>${escapeHTML(description)}</p>
-
-              <div class="meta">
-                <span class="pill">
-                  ${escapeHTML(repo.language || "Code")}
-                </span>
-                <span class="pill">★ ${repo.stargazers_count}</span>
-                <span class="pill">Forks ${repo.forks_count}</span>
-              </div>
-
-              <div class="card-links">
-                <a class="small-btn"
-                   href="${repoUrl}"
-                   target="_blank" rel="noopener">
-                  Source Code ↗
-                </a>
-
-                <a class="small-btn live"
-                   href="${demoUrl}"
-                   target="_blank" rel="noopener">
-                  Live Demo ↗
-                </a>
-              </div>
-            </div>
-          </article>
-        `;
-      }).join("");
     }
 
-    async function loadProjects() {
-      try {
-        const response = await fetch(
-          "https://api.github.com/users/" +
-          username + "/repos?sort=updated&per_page=100"
+    function nextBatch() {
+
+        const fragment = document.createDocumentFragment();
+
+        const end = Math.min(
+            displayedCount + BATCH_SIZE,
+            filtered.length
         );
 
-        if (!response.ok) {
-          throw new Error("GitHub API response: " + response.status);
+        for (; displayedCount < end; displayedCount++) {
+            fragment.appendChild(
+                createCard(filtered[displayedCount])
+            );
         }
 
-        repositories = await response.json();
+        grid.appendChild(fragment);
 
-        repositories = repositories.filter(repo =>
-          !repo.private && !repo.fork
-        );
+        statusBox.textContent =
+            `Showing ${displayedCount} of ${filtered.length} projects`;
 
-        repositories.sort((a, b) =>
-          new Date(b.updated_at) - new Date(a.updated_at)
-        );
+        if (displayedCount < filtered.length) {
 
-        statusText.textContent = repositories.length
-          ? repositories.length +
-            " public projects · Updated automatically from GitHub"
-          : "No public projects found yet.";
+            const more = makeElement(
+                "button",
+                "btn",
+                "Load More Projects"
+            );
 
-        renderProjects();
-      } catch (error) {
-        statusText.textContent =
-          "Projects could not load right now. Please refresh the page.";
+            more.type = "button";
+            more.addEventListener("click", () => {
+                more.remove();
+                nextBatch();
+            });
 
-        grid.innerHTML =
-          '<p class="muted">GitHub projects could not be loaded. ' +
-          'Check your internet connection and try again.</p>';
-      }
+            statusBox.appendChild(document.createElement("br"));
+            statusBox.appendChild(more);
+        }
     }
 
-    search.addEventListener("input", renderProjects);
+    nextBatch();
+}
 
-    loadProjects();
-  </script>
+async function loadAllRepositories() {
+
+    statusBox.textContent = "Loading all public repositories...";
+
+    let page = 1;
+    let hasMore = true;
+    const seen = new Set();
+
+    try {
+
+        while (hasMore) {
+
+            const url =
+                `${API}?per_page=100&page=${page}&type=owner&sort=updated`;
+
+            const response = await fetch(url);
+
+            if (response.status === 403 || response.status === 429) {
+                throw new Error(
+                    "GitHub API rate limit reached. Please try again later."
+                );
+            }
+
+            if (!response.ok) {
+                throw new Error("GitHub API request failed.");
+            }
+
+            const data = await response.json();
+
+            for (const repo of data) {
+
+                if (
+                    !repo.private &&
+                    !repo.fork &&
+                    !repo.archived &&
+                    !seen.has(repo.id)
+                ) {
+                    seen.add(repo.id);
+                    repositories.push(repo);
+                }
+            }
+
+            statusBox.textContent =
+                `Fetched ${repositories.length} repositories...`;
+
+            hasMore = data.length === 100;
+            page++;
+        }
+
+        renderBatch();
+
+    } catch (error) {
+
+        console.error(error);
+
+        statusBox.textContent =
+            error.message +
+            ` Loaded ${repositories.length} repositories so far.`;
+        
+        if (repositories.length) {
+            renderBatch();
+        }
+    }
+}
+
+searchBox.addEventListener("input", renderBatch);
+
+loadAllRepositories();
+
+</script>
+
 </body>
 </html>
